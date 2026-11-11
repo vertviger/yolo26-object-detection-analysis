@@ -1,3 +1,5 @@
 videos/
 datasets/
 frames_exporter.py
+yolo26n.pt
+runs/
