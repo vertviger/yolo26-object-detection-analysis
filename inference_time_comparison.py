@@ -1,23 +1,54 @@
 from ultralytics import YOLO
+import os
 
-# Configutation variables
+if __name__ == '__main__':
 
-# model config
-model_name = "yolo26n.pt"
-# model_name = "yolo26m.pt"
+    # Configutation variables
 
-# video config
-video_size = 640
-# video_size = 1280
-video_path = f"videos/tollbooth_{video_size}.mp4"
+    # model config
+    model_name = "yolo26n.pt"
 
-model = YOLO(model_name)
-results = model.predict(
-    source = video_path,
-    save = True, 
-    conf = 0.3,
-    imgsz = video_size,
-    device = "cuda",
-    save_txt = False,
-    save_conf = True
-)
+    # video config
+    video_size = 1280
+    daytime = "day"
+    video_path = f"videos/tollbooth_{daytime}_{video_size}.mp4"
+
+    # yaml path
+    data_yaml = f"data_{daytime}.yaml"
+
+    # TODO: Separate paths for different model sizes
+    trained_model_path = "runs/detect/train/weights/best.pt"
+
+    if not os.path.exists(trained_model_path):
+        # model training
+        base_model = YOLO(model_name)
+        base_model.train(
+            data = data_yaml,
+            epochs = 15, 
+            imgsz = 640,
+            batch = 16, 
+            device = "cuda",
+        )
+
+    model = YOLO(trained_model_path)
+    results = model.predict(
+        source = video_path,
+        save = True, 
+        conf = 0.3,
+        imgsz = video_size,
+        device = "cuda",
+        save_txt = False,
+        save_conf = True
+    )
+
+    metrics = model.val(
+        data = data_yaml,
+        imgsz = video_size,
+        conf = 0.3,
+        iou = 0.5
+    )
+
+    print(f"Results for {daytime} at {video_size}p:")
+    print(f"Mean Average Precision: {metrics.box.map:.4f}")
+    print(f"Mean Precision: {metrics.box.mp:.4f}")
+    print(f"Mean Recall: {metrics.box.mr:.4f}")
