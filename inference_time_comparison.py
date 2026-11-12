@@ -4,17 +4,13 @@ import os
 if __name__ == '__main__':
 
     # Configutation variables
-
-    # model config
-    model_name = "yolo26n.pt"
-
-    # video config
-    video_size = 1280
-    daytime = "day"
-    video_path = f"videos/tollbooth_{daytime}_{video_size}.mp4"
-
-    # yaml path
-    data_yaml = f"data_{daytime}.yaml"
+    
+    model_name = "yolo26n.pt" # model config
+    
+    video_size = 1280 # video size
+    daytime = "night_enhanced"  # video time
+    
+    data_yaml = f"data.yaml" # yaml path
 
     # TODO: Separate paths for different model sizes
     trained_model_path = "runs/detect/train/weights/best.pt"
@@ -29,7 +25,7 @@ if __name__ == '__main__':
             batch = 16, 
             device = "cuda",
         )
-
+    video_path = f"videos/tollbooth_{daytime}_{video_size}.mp4"
     model = YOLO(trained_model_path)
     results = model.predict(
         source = video_path,
