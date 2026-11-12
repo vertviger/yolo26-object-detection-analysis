@@ -1,0 +1,7 @@
+names:
+  0: car
+  1: truck
+  2: bus
+path: ./datasets
+train: day/images
+val: night_enhanced/images
