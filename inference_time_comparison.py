@@ -6,8 +6,8 @@ if __name__ == '__main__':
     model_variant = "m" #model size
     model_base = f"yolo26{model_variant}.pt" # model config
     
-    video_size = 640 # video size
-    daytime = "day_val"  # video time
+    video_size = 1280 # video size
+    daytime = "day_dp"  # video time
     video_path = f"videos/tollbooth_{daytime}_{video_size}.mp4"
     data_yaml = f"data_{daytime}.yaml" # yaml path
 
@@ -21,8 +21,9 @@ if __name__ == '__main__':
         base_model.train(
             data = data_yaml,
             epochs = 15, 
-            imgsz = 640,
-            batch = 16, 
+            imgsz = 1280,
+            batch = 4, 
+            amp = True,
             device = "cuda",
             name = experiment_name 
         )
