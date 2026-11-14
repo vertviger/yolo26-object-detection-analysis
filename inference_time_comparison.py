@@ -3,11 +3,11 @@ import os
 
 if __name__ == '__main__':
     # Configutation variables
-    model_variant = "n" #model size
+    model_variant = "m" #model size
     model_base = f"yolo26{model_variant}.pt" # model config
     
-    video_size = 1280 # video size
-    daytime = "day"  # video time
+    video_size = 640 # video size
+    daytime = "day_val"  # video time
     video_path = f"videos/tollbooth_{daytime}_{video_size}.mp4"
     data_yaml = f"data_{daytime}.yaml" # yaml path
 
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     results = model.predict(
         source = video_path,
         save = True, 
-        conf = 0.3,
+        conf = 0.5,
         imgsz = video_size,
         device = "cuda",
         save_txt = False,
@@ -40,8 +40,8 @@ if __name__ == '__main__':
     metrics = model.val(
         data = data_yaml,
         imgsz = video_size,
-        conf = 0.3,
-        iou = 0.5
+        conf = 0.5,
+        iou = 0.8
     )
 
     print(f"Results for {daytime} at {video_size}p:")
