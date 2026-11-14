@@ -4,3 +4,4 @@ frames_exporter.py
 yolo26n.pt
 yolo26m.pt
 runs/
+results/
