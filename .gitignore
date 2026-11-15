@@ -1,7 +1,17 @@
-videos/
-datasets/
-frames_exporter.py
-yolo26n.pt
-yolo26m.pt
-runs/
+# Dataset & Media
+datasets/day/images/
+datasets/day_dp/images/
+datasets/day_val/images/
+datasets/rain/images/
+datasets/night/images/
+
+# Ultralytics Runs & Results
+runs/analytics/
 results/
+
+# Python Bytecode & Caches
+__pycache__/
+*.pyc
+.venv/
+.vscode/
+.pt
