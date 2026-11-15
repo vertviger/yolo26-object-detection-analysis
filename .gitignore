@@ -6,10 +6,7 @@ datasets/rain/images/
 datasets/night/images/
 
 # Ultralytics Runs & Results
-runs/predict/
-runs/val/
-runs/train_yolo26m/analytics/
-runs/train_yolo26n/analytics/
+runs/
 results/
 
 # Python Bytecode & Caches
@@ -17,5 +14,6 @@ __pycache__/
 *.pyc
 .venv/
 .vscode/
+*.cache
 yolo26n.pt
 yolo26m.pt
