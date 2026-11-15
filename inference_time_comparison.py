@@ -3,11 +3,11 @@ import os
 
 if __name__ == '__main__':
     # Configutation variables
-    model_variant = "m" #model size
+    model_variant = "n" #model size
     model_base = f"yolo26{model_variant}.pt" # model config
     
     video_size = 1280 # video size
-    daytime = "day_dp"  # video time
+    daytime = "rain"  # video time
     video_path = f"videos/tollbooth_{daytime}_{video_size}.mp4"
     data_yaml = f"data_{daytime}.yaml" # yaml path
 
