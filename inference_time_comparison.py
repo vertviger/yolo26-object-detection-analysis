@@ -3,7 +3,7 @@ import os
 
 if __name__ == '__main__':
     # Configutation variables
-    model_variant = "n" #model size
+    model_variant = "m" #model size
     model_base = f"yolo26{model_variant}.pt" # model config
     
     video_size = 1280 # video size
@@ -12,8 +12,8 @@ if __name__ == '__main__':
     data_yaml = f"data_{daytime}.yaml" # yaml path
 
     # TODO: Separate paths for different model sizes
-    experiment_name = f"train_yolo26{model_variant}"
-    trained_model_path = f"runs/detect/{experiment_name}/weights/best.pt"
+    model_name = f"yolo26{model_variant}"
+    trained_model_path = f"weights_{model_name}/best.pt"
 
     if not os.path.exists(trained_model_path):
         # model training
@@ -25,7 +25,7 @@ if __name__ == '__main__':
             batch = 4, 
             amp = True,
             device = "cuda",
-            name = experiment_name 
+            name = model_name 
         )
     model = YOLO(trained_model_path)
     results = model.predict(
