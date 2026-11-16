@@ -11,7 +11,6 @@ if __name__ == '__main__':
     video_path = f"videos/tollbooth_{daytime}_{video_size}.mp4"
     data_yaml = f"data_{daytime}.yaml" # yaml path
 
-    # TODO: Separate paths for different model sizes
     model_name = f"yolo26{model_variant}"
     trained_model_path = f"weights_{model_name}/best.pt"
 
