@@ -1,4 +1,4 @@
-# Yolo26-object-detection analysis
+# Yolo26 object detection analysis
 <img width="1280" height="720" alt="tollbooth_day_dp_1280_m" src="https://github.com/user-attachments/assets/81afd01d-410a-4114-8f9a-23138d3dc1f0" />
 
 ## Specification
@@ -9,11 +9,10 @@
 * **Classes to classify**: Car, Truck, Bus
 
 ## Description
-The goal of this project is to compare Yolo26 nano and medium models. 
-Main measurements are inference time, precision and recall.
+The goal of this project is to compare Yolo26 nano and medium models (Inference time, training time, precision and recall). 
 The test scenario conducted is traffic scanning, the model has to detect commercial vehicles passing onto the highway.
 Testing scenarios include: daylight and night time footage, daylight footage with a different perspective from training footage, and rainy weather footage. 
-Full confusion matrices, per-class breakdowns, and visual samples are available in [yolo26-object-detection-analysis.pdf](./yolo26-object-detection-analysis.pdf).
+Full confusion matrices, comparison tables, and visual samples are available in [yolo26-object-detection-analysis.pdf](./yolo26-object-detection-analysis.pdf).
 
 ## Summary Table
 | Scenario | Model | mAP50 | Precision | Recall | Inference | Max Throughput |
