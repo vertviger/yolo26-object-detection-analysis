@@ -30,14 +30,14 @@ Full confusion matrices, comparison tables, and visual samples are available in 
 
 ## Project Findings
 ### Inference and Performance Differences:
-The YOLOv8n (Nano) variant shows far greater inference throughput, running at ~3.0 ms per image (~333 FPS at 1280p) and scaling up to 1,250 FPS at 640p, 
+The YOLO26n (Nano) variant shows far greater inference throughput, running at ~3.0 ms per image (~333 FPS at 1280p) and scaling up to 1,250 FPS at 640p, 
 compared to the Medium model's heavier ~16.3 ms footprint (~60 FPS). 
 Furthermore, Nano consistently achieved higher structural recall and mAP50 on standard distributions, 
 proving that high speed does not compromise baseline accuracy.
 
 ### Best Suited Scenarios:
-* **YOLOv8n (Nano)**: Ideal for real-time deployment, high-throughput traffic monitoring, and resource-limited hardware where fast latency and structural generalization are critical priorities.   
-* **YOLOv8m (Medium)**: Best suited for complex, data-dense multi-class tracking tasks working in controlled, stationary environments, or scenarios where the training perfectly matches production use and extensive data augmentation can be fully leveraged during training process.
+* **YOLO26n (Nano)**: Ideal for real-time deployment, high-throughput traffic monitoring, and resource-limited hardware where fast latency and structural generalization are critical priorities.   
+* **YOLO26m (Medium)**: Best suited for complex, data-dense multi-class tracking tasks working in controlled, stationary environments, or scenarios where the training perfectly matches production use and extensive data augmentation can be fully leveraged during training process.
 
 ### Why medium model didn't show better results
 With ~20 million parameters, the Medium model possesses high capacity, making it prone to overfitting on synthetic rendering artifacts, textures, and geometric priors unique to the training environment. 
