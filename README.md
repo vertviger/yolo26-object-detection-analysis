@@ -37,11 +37,11 @@ proving that high speed does not compromise baseline accuracy.
 
 ### Best Suited Scenarios:
 * **YOLO26n (Nano)**: Ideal for real-time deployment, high-throughput traffic monitoring, and resource-limited hardware where fast latency and structural generalization are critical priorities.   
-* **YOLO26m (Medium)**: Best suited for complex, data-dense multi-class tracking tasks working in controlled, stationary environments, or scenarios where the training perfectly matches production use and extensive data augmentation can be fully leveraged during training process.
+* **YOLO26m (Medium)**: Best suited for complex, dense multi-class tracking tasks working in controlled, stationary environments, or scenarios where the training perfectly matches production use and extensive data augmentation can be fully leveraged during training process.
 
 ### Why medium model didn't show better results
 With ~20 million parameters, the Medium model possesses high capacity, making it prone to overfitting on synthetic rendering artifacts, textures, and geometric priors unique to the training environment. 
-Because it memorizes specific details rather than learning generalized coarse shapes, it breaks down under out-of-distribution shifts. 
+Because it memorizes specific details rather than learning generalized coarse shapes, it breaks down under major domain shifts. 
 To perform robustly, it demands heavy data augmentation (domain randomization, lighting variations, and weather blending) as well as longer training process with fine-tuning fitting the testing environment.
 
 ## Run Instructions
